@@ -1,0 +1,60 @@
+#include<stdio.h>
+int add(int a, int b);
+int sub(int a, int b);
+int mul(int a, int b);
+int div(int a, int b);
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int sub(int a, int b) {
+    return a - b;
+}
+
+int mul(int a, int b) {
+    return a * b;
+}
+
+int div(int a, int b) {
+    if (b == 0) {  // Correct the logic for division by zero
+        printf("Division by zero is not allowed.\n");
+        return 0;
+    } else {
+        return a / b;
+    }
+}
+
+int main() {
+    int x, y, c, d, e, f;
+    char op;
+    printf("Enter Any Two Numbers: ");
+    scanf("%d %d", &x, &y);
+    printf("Enter Operator choice (+, -, *, /): ");
+    scanf(" %c", &op);  // Add a space before %c to consume leftover newline
+
+    switch (op) {
+        case '+':
+            c = add(x, y);
+            printf("Addition is %d\n", c);
+            break;
+        case '-':
+            d = sub(x, y);
+            printf("Subtraction is %d\n", d);
+            break;
+        case '*':
+            e = mul(x, y);
+            printf("Multiplication is %d\n", e);
+            break;
+        case '/':
+            f = div(x, y);
+            if (y != 0) {
+                printf("Division is %d\n", f);
+            }
+            break;
+        default:
+            printf("Incorrect Operator!\n");
+            break;
+    }
+    return 0;
+}
